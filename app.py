@@ -20,4 +20,6 @@ app.secret_key = "super secret key"
 def index():
 
     # Get global data from database
+    a = 5 
+    b = 9
     return render_template("index.html")
