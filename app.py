@@ -22,6 +22,11 @@ def index():
 @app.route("/miller_rabin_test", methods=["GET", "POST"]) 
 def miller_rabin_test(): 
 
+  if request.method == "POST":
+
+    # Get data from registration.html
+    number = int(request.args.get("number"))
+    
     # Miller-Rabin primality test (probabilistic primality test)
     # Based on the principle of prime modulo and that X*X=1 has maximum only
     # two solutions one and minus one 
@@ -80,4 +85,16 @@ def miller_rabin_test():
        # Return true when most likely prime 
         return True  
 
-    return render_template("miller_rabin_test.html")
+    # Check if user input is a prime number 
+    result = ""
+
+    if miller_rabin_tester_test(number):
+      result = "Primzahl"
+    else:
+      result = "Keine Primzahl"
+
+    # Render page with result 
+    return render_template("miller_rabin_test.html", result=result)
+
+  else:
+    return render_template("miller_rabin_test") 
