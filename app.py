@@ -97,4 +97,4 @@ def miller_rabin_test():
     return render_template("miller_rabin_test.html", result=result)
 
   else:
-    return render_template("miller_rabin_test") 
+    return render_template("miller_rabin_test.html") 
