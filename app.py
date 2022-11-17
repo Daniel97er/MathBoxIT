@@ -19,7 +19,7 @@ def index():
     return render_template("index.html")
 
 # Miller-Rabin-Test 
-@app.route("/miller_rabin_test") 
+@app.route("/miller_rabin_test", methods=["GET", "POST"]) 
 def miller_rabin_test(): 
 
     # Miller-Rabin primality test (probabilistic primality test)
@@ -79,3 +79,5 @@ def miller_rabin_test():
 
        # Return true when most likely prime 
         return True  
+
+    return render_template("miller_rabin_test.html")
