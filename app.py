@@ -25,7 +25,7 @@ def miller_rabin_test():
   if request.method == "POST":
 
     # Get data from registration.html
-    number = int(request.args.get("number"))
+    number = int(request.form.get("prime"))
     
     # Miller-Rabin primality test (probabilistic primality test)
     # Based on the principle of prime modulo and that X*X=1 has maximum only
@@ -94,7 +94,9 @@ def miller_rabin_test():
       result = "Keine Primzahl"
 
     # Render page with result 
+    print(result)
     return render_template("miller_rabin_test.html", result=result)
 
   else:
-    return render_template("miller_rabin_test.html") 
+    return render_template("miller_rabin_test.html")
+
