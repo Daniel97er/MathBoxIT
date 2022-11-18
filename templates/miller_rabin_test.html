@@ -1,9 +1,15 @@
-<h1>Miller-Rabin-test</h1>
+{% extends "layout.html" %}
 
-<form action="/miller_rabin_test" method="post">
-    <input autocomplete="off" id="prime" name="prime" placeholder="Primenumber" required type="number">
-    <br>
-    <button>Prime test!</button>
-</form>
+{% block content %}
 
-<h1>aloha {{ result }}</h1> 
+    <h1>Miller-Rabin-test</h1>
+
+    <form action="/miller_rabin_test" method="post">
+        <input autocomplete="off" id="prime" name="prime" placeholder="Primenumber" required type="number">
+        <br>
+        <button>Prime test!</button>
+    </form>
+
+    <h1>Result: {{ result }}</h1> 
+
+{% endblock %}
