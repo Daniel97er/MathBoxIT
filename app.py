@@ -85,9 +85,9 @@ def miller_rabin_test():
     result = ""
 
     if miller_rabin_tester_test(number):
-      result = "Primzahl"
+      result = 1
     else:
-      result = "Keine Primzahl"
+      result = 0
 
     # Render page with result
     print(result)

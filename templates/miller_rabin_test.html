@@ -2,16 +2,27 @@
 
 {% block content %}
 
-    <h1>Miller-Rabin-test</h1>
+    <body>
+        <h1 class="function-header">Miller-Rabin-Test</h1>
 
-    <div class="input-div">
-        <form action="/miller_rabin_test" method="post">
-            <input autocomplete="off" autofocus id="prime" name="prime" placeholder="Number" required type="number">
-            <br>
-            <button>Prime test!</button>
-        </form>
-    </div>
+        <div class="input-div">
+            <form action="/miller_rabin_test" method="post">
+                <label class="label">Number:
+                    <input class="input-field" autocomplete="off" autofocus id="prime" name="prime" placeholder="Please enter a number" required type="number">
+                </label>
+                <br>
+                <button class="button">Prime test!</button>
+            </form>
+        </div>
 
-    <h1>Result: {{ result }}</h1> 
+        {% if result==1 %}
+            <h1 class="positive-result">Number is prime</h1> 
+        {% elif result==0 %}
+            <h1 class="negative-result">Number is not prime</h1>
+        {% else %}
+            <h1 class="standard-result">Please enter a number</h1>
+        {% endif %}
+
+    </body>
 
 {% endblock %}

@@ -1,0 +1,47 @@
+body {
+    background-color: #333; 
+}
+
+.function-header {
+    text-align: center;
+    margin: 5%;
+    color: cyan;
+}
+
+.input-div {
+    text-align: center;
+}
+
+.positive-result {
+    text-align: center;
+    color: lightgreen;
+}
+
+.negative-result {
+    text-align: center;
+    color: red; 
+}
+
+.standard-result {
+    text-align: center;
+    color: lightblue;
+}
+
+.input-field {
+    margin-left: 1.5%;
+}
+
+.label {
+    font-weight: bold;
+    color:cyan;
+}
+
+.button {
+    width: 15%;
+    height: 3vw;
+    margin: 3%;
+    font-weight: bold;
+    background-color: cyan;
+    border-radius: 3vw;
+    border-style: hidden;
+}
