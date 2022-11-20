@@ -102,21 +102,28 @@ def miller_rabin_test():
 @app.route("/prime_factors", methods=["GET", "POST"])
 def prime_factors():
 
+  if request.method == "POST":
+
+    entered_number = int(request.form.get("prime_factor"))
+    
     def prime_factorization(number):
         # Return three lists with prime factorials, exponents and one index list for jinja 
   
+        
         # Check zero and one by default
         if number == 0:
-           return [0], [1]
+           # factor, exponent and index
+           return [0], [1], [0]
 
         if number == 1:
-  	       return [1], [1]
+           # factor, exponent and index
+  	       return [1], [1], [0]
 
         # Create two lists for prime factors and exponents
         factor_list = []
         exponent_list = []
 
-        # Get prime numbers up to number 
+        # Get prime numbers up to number
         prime_list = prime_test(number)
   
         # Go through primes and check if it is a prime factor and possibly add to prime factors list
@@ -127,12 +134,12 @@ def prime_factors():
         # Calculate the number of exponent for the respective prime factor
         for i in factor_list:
           counter = 0
-          temp_number = number 
+          temp_number = number
           # Keep dividing the number until it no longer fits in
           while temp_number % i == 0:
             temp_number //= i
             counter += 1
-          exponent_list.append(counter) 
+          exponent_list.append(counter)
 
         # Create index list for jinja template for loop
         index_list = [i for i in range(len(factor_list))]
@@ -145,17 +152,17 @@ def prime_factors():
 
         prime_test_list = []
 
-        # Go through all numbers 
+        # Go through all numbers
         for i in range(2, number+1):
 
          # Set tester to false to check if current i is prime
-         tester = False 
+         tester = False
     
-         # Go up to square root because of efficiency 
+         # Go up to square root because of efficiency
          for j in range(2,int(math.sqrt(i))+1):
-             # If there is a dividend so i is not prime 
+             # If there is a dividend so i is not prime
              if i % j == 0:
-                 tester = True 
+                 tester = True
                  # Stop loop if i is not prime
                  break
     
@@ -166,6 +173,10 @@ def prime_factors():
   
         return prime_test_list
     
-    p_factors, p_exponents, index_list = prime_factorization(2)
-    return 
+    p_factors, p_exponents, index_list = prime_factorization(entered_number)
+
+    return render_template("prime_factors.html", p_factors=p_factors, p_exponents=p_exponents, index_list=index_list)
+
+  else:
+    return render_template("prime_factors.html")
 
