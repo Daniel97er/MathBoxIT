@@ -11,7 +11,7 @@ app.secret_key = "super secret key"
 
 
 # Homepage
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
 
@@ -173,6 +173,7 @@ def prime_factors():
   
         return prime_test_list
     
+    # Prime factor, prime exponent and index list
     p_factors, p_exponents, index_list = prime_factorization(entered_number)
 
     return render_template("prime_factors.html", p_factors=p_factors, p_exponents=p_exponents, index_list=index_list)

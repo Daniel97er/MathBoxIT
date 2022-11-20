@@ -45,3 +45,13 @@ body {
     border-radius: 3vw;
     border-style: hidden;
 }
+
+.back-button {
+    width: 20%;
+    height: 4vw; 
+    margin-top: 10%;
+    font-weight: bold;
+    background-color: gold;
+    border-radius: 4vw;
+    border-style: hidden;
+}
