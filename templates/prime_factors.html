@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <body>
+        <h1 class="function-header">Prime_factors</h1>
+
+        <div class="input-div">
+            <form action="/prime_factors" method="post">
+                <label class="label">Number:
+                    <input class="input-field" autocomplete="off" autofocus id="prime_factor" name="prime_factor" placeholder="Enter a number" required type="number">
+                </label>
+                <br>
+                <button class="result-button">Prime factors!</button>
+            </form>
+        </div>
+    </body>
+
+{% endblock %}
