@@ -219,8 +219,16 @@ def isbn_test():
         # If sum modulo 11 is not equal to check digit it is a not correct isbn
         result = sum % 11
 
+        temp = -1
+        
+        # Check if check-digit is not int
+        if isbn[9] == "x" or isbn[9] == "X":
+          temp = 10
+        else:
+          temp = int(isbn[9])
+
         # Return result
-        if result == isbn[9]:
+        if result == temp:
             return 1
         else:
             return 0
