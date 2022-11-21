@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <body>
+        <h1 class="function-header">Euclidean algorithm</h1>
+
+        <div class="input-div">
+            <form action="/euclidean_algorithm" method="post">
+                <label class="label">Number 1:
+                    <input class="input-field" autocomplete="off" autofocus id="euclidean_number1" name="euclidean_number1" placeholder="Enter number 1" required type="number">
+                </label>
+                <br>
+                <label class="label">Number 2:
+                    <input class="input-field" autocomplete="off" id="euclidean_number2" name="euclidean_number2" placeholder="Enter number 2" required type="number">
+                </label>
+                <br>
+                <button class="result-button">Get GCD!</button>
+            </form>
+        </div>
+
+        <h1 class="standard-result">{{ result }}</h1>
+
+        <form action="/">
+            <button class="back-button" type="submit">Homepage</button>
+        </form>
+
+    </body>
+
+{% endblock %}

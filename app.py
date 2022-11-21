@@ -238,3 +238,15 @@ def isbn_test():
   
   else:
     return render_template("isbn_test.html")
+
+
+# Euclidean algorithm
+@app.route("/euclidean_algorithm", methods=["GET", "POST"])
+def euclidean_algorithm():
+
+  if request.method == "POST":
+
+    return render_template("euclidean_algorithm.html")
+
+  else:
+    return render_template("euclidean_algorithm.html")
