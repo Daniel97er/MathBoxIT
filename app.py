@@ -181,3 +181,21 @@ def prime_factors():
   else:
     return render_template("prime_factors.html")
 
+# ISBN-10 TEST
+@app.route("/isbn_test", methods=["GET", "POST"])
+def isbn_test():
+  
+  if request.method == "POST":
+    number = request.form.get("isbn")
+    
+    for i in number:
+        print(i)
+
+    print(len(number))
+
+    result=1
+
+    return render_template("isbn_test.html", result=result)
+  
+  else:
+    return render_template("isbn_test.html")
