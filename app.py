@@ -193,12 +193,39 @@ def isbn_test():
     if len(number) != 10:
 
       # Flash message to help the user
-      flash("Please enter a ten-digit ISBN-number")
+      flash("Please enter a ten-digit ISBN-number without space or other signs")
 
       return render_template("isbn_test.html")
 
-    result=1
+    for i in number:
+      if not ((ord(i) >= 48 and ord(i) <= 57) or (ord(i) == 88) or (ord(i) == 120)):
+        flash("Not valid sign was entered, please try again")
 
+        return render_template("isbn_test.html")
+
+    def isbn_test(isbn):
+        # Check if there is a valid ISBN-10 number
+
+        sum = 0
+        counter = 1
+        # Get isbn numbers without check digit
+        isbn_list = isbn[:9]
+
+        # Go through numbers and calculate the value
+        for i in isbn_list:
+            sum += counter*int(i)
+            counter += 1
+
+        # If sum modulo 11 is not equal to check digit it is a not correct isbn
+        result = sum % 11
+
+        # Return result
+        if result == isbn[9]:
+            return 1
+        else:
+            return 0
+
+    result = isbn_test(number)
     return render_template("isbn_test.html", result=result)
   
   else:
