@@ -246,7 +246,26 @@ def euclidean_algorithm():
 
   if request.method == "POST":
 
-    return render_template("euclidean_algorithm.html")
+    # Get user data from euclidean_algorithm page
+    number1 = int(request.form.get("euclidean_number1"))
+    number2 = int(request.form.get("euclidean_number2"))
+
+    def euclidean_algorithm_func(number1, number2):
+        # Return GCD from number1 and number2
+
+        # Calculate with modulo while is possible
+        while number2 != 0:
+            temp = number1%number2
+            # swap numbers 
+            number1 = number2
+            number2 = temp
+
+        # Return GCD
+        return number1
+
+    result = euclidean_algorithm_func(number1, number2)
+    
+    return render_template("euclidean_algorithm.html", result=result)
 
   else:
     return render_template("euclidean_algorithm.html")
