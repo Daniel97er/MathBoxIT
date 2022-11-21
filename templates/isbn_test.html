@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <body>
+        <h1 class="function-header">ISBN-10-Test</h1>
+
+        <div class="input-div">
+            <form action="/isbn_test" method="post">
+                <label class="label">ISBN-10 number:
+                    <input class="input-field" autocomplete="off" autofocus id="isbn" name="isbn" placeholder="Please enter a ISBN-10 number" required type="number">
+                </label>
+                <br>
+                <button class="result-button">Test!</button>
+            </form>
+        </div>
+
+        {% if result==1 %}
+            <h1 class="positive-result">Number is valid</h1> 
+        {% elif result==0 %}
+            <h1 class="negative-result">Number is not valid</h1>
+        {% else %}
+            <h1 class="standard-result">Please enter a ISBN-10 number</h1>
+        {% endif %}
+
+        <form action="/">
+            <button class="back-button" type="submit">Homepage</button>
+        </form>
+
+    </body>
+
+{% endblock %}
