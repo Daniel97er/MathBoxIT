@@ -3,6 +3,12 @@
 {% block content %}
 
     <body>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         <h1 class="function-header">ISBN-10-Test</h1>
 
         <div class="input-div">

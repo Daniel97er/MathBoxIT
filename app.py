@@ -186,12 +186,16 @@ def prime_factors():
 def isbn_test():
   
   if request.method == "POST":
+    # Get user input
     number = request.form.get("isbn")
-    
-    for i in number:
-        print(i)
 
-    print(len(number))
+    # Check if it is a ten-digit number
+    if len(number) != 10:
+
+      # Flash message to help the user
+      flash("Please enter a ten-digit ISBN-number")
+
+      return render_template("isbn_test.html")
 
     result=1
 
