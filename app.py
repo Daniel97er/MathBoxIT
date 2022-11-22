@@ -269,3 +269,64 @@ def euclidean_algorithm():
 
   else:
     return render_template("euclidean_algorithm.html")
+
+
+# Extended Euclidean algorithm
+@app.route("/extended_euclidean_algorithm", methods=["GET", "POST"])
+def extended_euclidean_algorithm():
+
+  if request.method == "POST":
+
+    # Because of user data
+    try:
+        # Get user data from extended_euclidean_algorithm page
+        number1 = int(request.form.get("extended_euclidean_number1"))
+        number2 = int(request.form.get("extended_euclidean_number2"))
+
+        def extended_euclidean_algorithm(number1, number2):
+            # Extended euclidean algorithm return in this function GCD and linear combination 
+
+            # Avoid error
+            if number2 == 0:
+                return(number1, 1, 0)
+
+            # Quotient list 
+            q_list = []
+            # Counter for calculation
+            counter1 = 0
+
+            # GCD calculation and documentation
+            while number2 != 0:
+                q_list.append(number1 // number2)
+                number3 = number2
+                number2 = number1 % number2
+                number1 = number3
+                counter1 += 1
+
+            # Variable for the backward algorithm
+            x = 0
+            y = 1
+            # List of y
+            y_list_temp = [1]
+            # counter2 to get the right index from list
+            counter2 = 0
+
+            # Go backward through list and calculate the linear combinations
+            while counter1 > 1:
+                # Calculate y and add in the list then calculate x
+                y = x - q_list[counter1 - 2] * y_list_temp[counter2]
+                y_list_temp.append(y)
+                x = y_list_temp[counter2]
+                # Update counters
+                counter2 += 1
+                counter1 -= 1
+    
+
+            return(number1, x, y)
+
+        result, result_number1, result_number2 = extended_euclidean_algorithm(number1, number2)
+    except:
+      flash("Please enter number in the number fields")
+      return render_template("/extended_euclidean_algorithm")
+  else:
+    return render_template("/extended_euclidean_algorithm")
