@@ -325,6 +325,8 @@ def extended_euclidean_algorithm():
             return(number1, x, y)
 
         result, result_number1, result_number2 = extended_euclidean_algorithm(number1, number2)
+
+        return render_template("/extended_euclidean_algorithm", number1=number1, number2=number2, result=result, result_number1=result_number1, result_number2=result_number2)
     except:
       flash("Please enter number in the number fields")
       return render_template("/extended_euclidean_algorithm")
