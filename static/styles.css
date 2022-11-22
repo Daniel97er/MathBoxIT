@@ -55,3 +55,18 @@ body {
     border-radius: 4vw;
     border-style: hidden;
 }
+
+.in-element {
+    display: inline-block;
+    margin-top: 3vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-bottom: 1vw;
+    padding: 3vw;
+}
+.out-element {
+    text-align: center;
+    margin: 3vw;
+    margin-top: 1vw;
+    padding: 0;
+}
