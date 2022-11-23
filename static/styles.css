@@ -94,6 +94,16 @@ body {
     border-style: hidden;
 }
 
+.binary-button {
+    width: 130%;
+    height: 4vw; 
+    margin-top: 10%;
+    font-weight: bold;
+    background-color: lightgreen;
+    border-radius: 4vw;
+    border-style: hidden;
+}
+
 .in-element {
     display: inline-block;
     margin-top: 3vw;
