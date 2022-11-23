@@ -1,6 +1,6 @@
 import math
 from random import randrange
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, flash
 
 # Flask instance configuration
 app = Flask(__name__)
@@ -394,7 +394,7 @@ def decimal_to_numeral_system():
 
     else:
 
-      return render_template("decimal_to_numeral_system.html")
+        return render_template("decimal_to_numeral_system.html")
 
   
 
