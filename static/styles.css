@@ -7,6 +7,14 @@ body {
     margin: 5%;
 }
 
+#math-header {
+    color: blue;
+}
+
+#binary-header {
+    color: lightgreen;
+}
+
 #header1 {
     color: cyan;
 }
