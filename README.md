@@ -14,3 +14,10 @@ This test breaks down a number into its prime factors.
 
 ### ISBN-10-Test 
 This test check if a ISBN-10 number is valid. Enter here the number without space or other signs.
+
+### Euclidean algorithm 
+This algorithm checks with modulo calculating wbich is the great commen divisior of two entered numbers.
+
+### Extended Euclidean algorithm
+This algorithm calculate the great common divisior and reconstruct a linear combination with the two entered numbers Equalizer to the great common
+divisor.
