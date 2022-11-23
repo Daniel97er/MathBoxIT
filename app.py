@@ -74,7 +74,7 @@ def miller_rabin_test():
                 return False
 
           # Run Miller-Rabin-test 15 times to test
-            for i in range(15):
+            for _ in range(15):
                 if not miller_rabin_tester(number):
                     # Return false if number not prime
                     return False
@@ -165,9 +165,9 @@ def prime_factors():
                         tester = True
                         # Stop loop if i is not prime
                         break
-            
+
                 # If tester in the end of the loop is false so i is a prime
-                if tester == False:
+                if tester is False:
                     prime_test_list.append(i)
 
       
@@ -347,6 +347,8 @@ def decimal_to_numeral_system():
         decimal_number = int(request.form.get("decimal_number"))
         numeral_system = int(request.form.get("numeral_system"))
 
+        print("jo")
+
         def decimal_to_numeral_system_func(decimal_number, numeral_system):
             # Function converts decimal number into another numeral system
 
@@ -381,6 +383,8 @@ def decimal_to_numeral_system():
         # Get list with decimal to numerial system result
         result_list = decimal_to_numeral_system_func(decimal_number, numeral_system)
 
+        print("moin")
+
         # Create a integer from the result list
         string_result = ""
 
@@ -388,6 +392,8 @@ def decimal_to_numeral_system():
             string_result += str(index)
    
         result = int(string_result)
+
+        print("joo")
 
 
         return render_template("decimal_to_numeral_system.html", result=result, numeral_system=numeral_system)
