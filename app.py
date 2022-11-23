@@ -343,11 +343,9 @@ def decimal_to_numeral_system():
   
     if request.method == "POST":
 
-        # Get user data from decimal_to_numeral_system page 
+        # Get user data from decimal_to_numeral_system page
         decimal_number = int(request.form.get("decimal_number"))
         numeral_system = int(request.form.get("numeral_system"))
-
-        print("jo")
 
         def decimal_to_numeral_system_func(decimal_number, numeral_system):
             # Function converts decimal number into another numeral system
@@ -372,18 +370,15 @@ def decimal_to_numeral_system():
                     list1.append(0)
                 else:
                     list1.append(decimal_number % numeral_system)
-
    
                 # Integer division
-                    decimal_number //= numeral_system
+                decimal_number //= numeral_system
 
             # Return the flipped list for right result
             return list1[::-1]
 
         # Get list with decimal to numerial system result
         result_list = decimal_to_numeral_system_func(decimal_number, numeral_system)
-
-        print("moin")
 
         # Create a integer from the result list
         string_result = ""
@@ -393,10 +388,8 @@ def decimal_to_numeral_system():
    
         result = int(string_result)
 
-        print("joo")
 
-
-        return render_template("decimal_to_numeral_system.html", result=result, numeral_system=numeral_system)
+        return render_template("decimal_to_numeral_system.html", result=result, decimal_number=decimal_number, numeral_system=numeral_system)
 
     else:
 
