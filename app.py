@@ -351,10 +351,10 @@ def decimal_to_numeral_system():
                 return [0]
 
             if decimal_number < 0:
-                return "Keine gültige Dezimalzahl"
+                return render_template("decimal_to_numeral_system.html")
 
             if numeral_system <= 1:
-                return "Kein gültiges Zahlensystem"
+                return render_template("decimal_to_numeral_system.html")
 
             # Empty list for result
             list1 = []
