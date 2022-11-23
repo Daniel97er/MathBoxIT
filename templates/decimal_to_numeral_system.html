@@ -3,23 +3,23 @@
 {% block content %}
 
     <body>
-        <h1 class="function-header">Decimal to numerial system</h1>
+        <h1 class="function-header">Decimal to numeral system</h1>
 
         <div class="input-div">
-            <form action="/euclidean_algorithm" method="post">
+            <form action="/decimal_to_numeral_system" method="post">
                 <label class="label">Decimal number:
                     <input class="input-field" autocomplete="off" autofocus id="decimal_number" name="decimal_number" placeholder="Enter a decimal number" required type="number">
                 </label>
                 <br>
-                <label class="label">Numerial system:
-                    <input class="input-field" autocomplete="off" id="numerial_system" name="numerial_system" placeholder="Enter the numerial system" required type="number">
+                <label class="label">Numeral system:
+                    <input class="input-field" autocomplete="off" id="numeral_system" name="numeral_system" placeholder="Enter the numeral system" required type="number">
                 </label>
                 <br>
-                <button class="result-button">Get number in new numerial system!</button>
+                <button class="result-button">Get number in new numeral system!</button>
             </form>
         </div>
 
-        <h1 class="standard-result">Number in {{ numerial_system }} numerial system: {{ result }}</h1>
+        <h1 class="standard-result">Number in {{ numeral_system }} numeral system: {{ result }}</h1>
 
         <form action="/">
             <button class="back-button" type="submit">Homepage</button>

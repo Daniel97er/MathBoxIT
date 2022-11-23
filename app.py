@@ -332,3 +332,65 @@ def extended_euclidean_algorithm():
       return render_template("extended_euclidean_algorithm.html")
   else:
     return render_template("extended_euclidean_algorithm.html")
+
+# Decimal to numerial system
+@app.route("/decimal_to_numeral_system", methods=["GET", "POST"])
+def decimal_to_numeral_system():
+  
+    if request.method == "POST":
+
+        # Get user data from decimal_to_numeral_system page 
+        decimal_number = int(request.form.get("decimal_number"))
+        numeral_system = int(request.form.get("numeral_system"))
+
+        def decimal_to_numeral_system_func(decimal_number, numeral_system):
+            # Function converts decimal number into another numeral system
+
+            # Standard cases and error checking
+            if decimal_number == 0:
+                return [0]
+
+            if decimal_number < 0:
+                return "Keine gültige Dezimalzahl"
+
+            if numeral_system <= 1:
+                return "Kein gültiges Zahlensystem"
+
+            # Empty list for result
+            list1 = []
+
+            # Modulo calculating while decimal_number greater zero
+            # and then check if zero or result from modulo calculating in list
+            while decimal_number >= 1:
+                if decimal_number % numeral_system == 0:
+                    list1.append(0)
+                else:
+                    list1.append(decimal_number % numeral_system)
+
+   
+                # Integer division
+                    decimal_number //= numeral_system
+
+            # Return the flipped list for right result
+            return list1[::-1]
+
+        # Get list with decimal to numerial system result
+        result_list = decimal_to_numeral_system_func(decimal_number, numeral_system)
+
+        # Create a integer from the result list
+        string_result = ""
+
+        for index in result_list:
+            string_result += str(index)
+   
+        result = int(string_result)
+
+
+        return render_template("decimal_to_numeral_system.html", result=result, numeral_system=numeral_system)
+
+    else:
+
+      return render_template("decimal_to_numeral_system.html")
+
+  
+
