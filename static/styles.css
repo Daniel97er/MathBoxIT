@@ -8,11 +8,14 @@ body {
 }
 
 #math-header {
+    text-align: center;
     color: blue;
 }
 
 #binary-header {
+    text-align: center;
     color: lightgreen;
+    margin-top: 5%;
 }
 
 #header1 {
