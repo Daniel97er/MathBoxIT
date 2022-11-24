@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <body>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger" role="alert">
+                { message }
+            </div>
+        {% endfor %}
+
+        <h1 class="function-header">Numeral system to decimal</h1>
+
+        <div class="input-div">
+            <form action="/numeral_system_to_decimal" method="post">
+                <label class="label">Number:
+                    <input class="input-field" autocomplete="off" autofocus id="number" name="number" placeholder="Enter a number" required type="number">
+                </label>
+                <br>
+                <label class="label">Numeral system:
+                    <input class="input-field" autocomplete="off" id="num_system" name="num_system" placeholder="Enter the numeral system" required type="number">
+                </label>
+                <br>
+                <button class="result-button">Get decimal number!</button>
+            </form>
+        </div>
+
+        <h1 class="standard-result">Decimal number: {{ result }}</h1>
+
+        <form action="/">
+            <button class="back-button" type="submit">Homepage</button>
+        </form>
+
+    </body>
+
+{% endblock %}

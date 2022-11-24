@@ -398,7 +398,7 @@ def decimal_to_numeral_system():
 
 
 # Numeral system to decimal
-@app.route("numeral_system_to_decimal", methods=["GET", "POST"])
+@app.route("/numeral_system_to_decimal", methods=["GET", "POST"])
 def numeral_system_to_decimal():
 
     if request.method == "POST":
@@ -432,10 +432,10 @@ def numeral_system_to_decimal():
 
         result = numeral_system_to_decimal(number, numeral_system)
 
-        return render_template("numeral_system_to_decimal", result=result)
+        return render_template("numeral_system_to_decimal.html", result=result)
 
     else:
-        return render_template("numerial_system_to_decimal.html")
+        return render_template("numeral_system_to_decimal.html")
 
   
 
