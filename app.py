@@ -330,7 +330,6 @@ def extended_euclidean_algorithm():
             return render_template("extended_euclidean_algorithm.html", number1=number1, number2=number2, result=result, result_number1=result_number1, result_number2=result_number2)
         
         except:
-
             flash("Please enter number in the number fields")
           
             return render_template("extended_euclidean_algorithm.html")
@@ -355,9 +354,11 @@ def decimal_to_numeral_system():
                 return [0]
 
             if decimal_number < 0:
+                flash("Please enter a decimal number higher zero")
                 return render_template("decimal_to_numeral_system.html")
 
             if numeral_system <= 1:
+                flash("Please enter a numeral system higher one")
                 return render_template("decimal_to_numeral_system.html")
 
             # Empty list for result
@@ -394,6 +395,47 @@ def decimal_to_numeral_system():
     else:
 
         return render_template("decimal_to_numeral_system.html")
+
+
+# Numeral system to decimal
+@app.route("numeral_system_to_decimal", methods=["GET", "POST"])
+def numeral_system_to_decimal():
+
+    if request.method == "POST":
+
+        # Get user data from numeral system to decimal page
+        numeral_system = int(request.form.get("num_system"))
+        number = int(request.form.get("number"))
+
+        def numeral_system_to_decimal(number, numeral_system):
+            # Function converts number from a numeral system into decimal
+    
+            # Check if user input number higher than numeral system
+            for i in str(number):
+                if numeral_system <= int(i):
+                    flash("Some digits from number higher than numeral system ")
+                    return render_template("numeral_system_to_decimal.html")
+            
+            counter = 0
+            sum = 0
+    
+            # Get string backward list of number
+            number_backward = str(number)[::-1]
+    
+            # Calculate the decimal value
+            for index in number_backward:
+                sum += int(index) * (numeral_system**counter)
+                counter += 1
+        
+            # Return decimal value
+            return sum
+
+        result = numeral_system_to_decimal(number, numeral_system)
+
+        return render_template("numeral_system_to_decimal", result=result)
+
+    else:
+        return render_template("numerial_system_to_decimal.html")
 
   
 
