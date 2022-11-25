@@ -439,7 +439,7 @@ def numeral_system_to_decimal():
 
 
 # Decimal to binary
-app.route("/decimal_to_binary", methods=["GET", "POST"])
+@app.route("/decimal_to_binary", methods=["GET", "POST"])
 def decimal_to_binary():
     
     if request.method == "POST":
@@ -482,6 +482,46 @@ def decimal_to_binary():
 
     else:
         return render_template("decimal_to_binary.html")
+
+
+# Binary to decimal
+@app.route("/binary_to_decimal", methods=["GET", "POST"])
+def binary_to_decimal():
+    
+    if request.method == "POST":
+
+        # Get user data from page
+        binary_num = int(request.form.get("binary_num"))
+
+        def binary_to_decimal(binary_list):
+            # Converts binary number to decimal
+
+            # Set digit to one to calculate
+            digit = 1
+            # Get modified binary list
+            binary_list = binary_list[1:]
+
+            # Calculate the binary number
+            for i in binary_list:
+                digit *= 2
+                digit += i
+
+            return digit
+
+
+        # Convert user input in a list of integer for work better with function
+        result = [int(index) for a,index in enumerate(str(binary_num))]
+
+        # Get decimal number
+        end_result = binary_to_decimal(result)
+
+        return render_template("binary_to_decimal.html", result=result)
+
+    else:
+
+        return render_template("binary_to_decimal.html")
+
+
 
   
 
