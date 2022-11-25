@@ -515,7 +515,7 @@ def binary_to_decimal():
         # Get decimal number
         end_result = binary_to_decimal(result)
 
-        return render_template("binary_to_decimal.html", result=result)
+        return render_template("binary_to_decimal.html", end_result=end_result)
 
     else:
 
