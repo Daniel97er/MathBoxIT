@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <body>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1 class="function-header">Decimal to binary</h1>
+
+        <div class="input-div">
+            <form action="/isbn_test" method="post">
+                <label class="label">Decimal number:
+                    <input class="input-field" autocomplete="off" autofocus id="decimal_num" name="decimal_num" placeholder="Please enter a decimal number to convert" required type="number">
+                </label>
+                <br>
+                <button class="result-button">Convert!</button>
+            </form>
+        </div>
+
+        <h1 class="standard-result">Binary: {{ result }}</h1>
+
+        <form action="/">
+            <button class="back-button" type="submit">Homepage</button>
+        </form>
+
+    </body>
+
+{% endblock %}

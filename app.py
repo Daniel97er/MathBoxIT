@@ -444,13 +444,16 @@ def decimal_to_binary():
     
     if request.method == "POST":
 
+        # Get user data from page
+        decimal_num = int(request.form.get("decimal_num"))
+
         def decimal_to_binary(decimal_num):
             # Funktion converts decimal number to binary number
   
             # Standard cases 
             if decimal_num <= 0:
                 flash("Please enter a decimal number higher than zero")
-  	            return render_template("decimal_to_binary.html")
+                return render_template("decimal_to_binary.html")
   	
             binary_list = []
 
