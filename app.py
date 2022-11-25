@@ -437,5 +437,48 @@ def numeral_system_to_decimal():
     else:
         return render_template("numeral_system_to_decimal.html")
 
+
+# Decimal to binary
+app.route("/decimal_to_binary", methods=["GET", "POST"])
+def decimal_to_binary():
+    
+    if request.method == "POST":
+
+        def decimal_to_binary(decimal_num):
+            # Funktion converts decimal number to binary number
+  
+            # Standard cases 
+            if decimal_num <= 0:
+                flash("Please enter a decimal number higher than zero")
+  	            return render_template("decimal_to_binary.html")
+  	
+            binary_list = []
+
+            # Calculate with modulo the binary values and append to list
+            while decimal_num != 0:
+                binary_list.append(decimal_num % 2)
+                decimal_num //= 2
+  
+            # List backwards is the right order
+            binary_list = binary_list[::-1] 
+  
+            # Convert int list into string 
+            binary_string_list = [str(x) for x in binary_list]
+  
+            # Convert string list into a string
+            binary_string = "".join(binary_string_list)
+  
+            # Convert string into integer
+            binary_num = int(binary_string)
+  
+            return binary_num
+        
+        result = decimal_to_binary(decimal_num)
+        
+        return render_template("decimal_to_binary.html", result=result)
+
+    else:
+        return render_template("decimal_to_binary.html")
+
   
 
