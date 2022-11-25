@@ -493,6 +493,15 @@ def binary_to_decimal():
         # Get user data from page
         binary_num = int(request.form.get("binary_num"))
 
+        # Check if user input is valid 
+        str_binary_num = str(binary_num)
+
+        # Check if user entered a not binary digit
+        for i in str_binary_num:
+            if int(i) > 1:
+                flash("A not binary digit was entered, please try again")
+                return render_template("binary_to_decimal.html")
+
         def binary_to_decimal(binary_list):
             # Converts binary number to decimal
 
