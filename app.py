@@ -336,6 +336,149 @@ def extended_euclidean_algorithm():
     else:
         return render_template("extended_euclidean_algorithm.html")
 
+# Chinese remainder theorem
+@app.route("/crt", methods=["GET", "POST"])
+def crt():
+
+    if request.method == "POST":
+
+        # Get user entered list from crt page
+        number_list = request.form.get("number_list")
+        mod_list = request.form.get("mod_list")
+        
+        # Formatted the lists
+        number_list_f =  [int(item) for item in number_list.split()]
+        mod_list_f =  [int(item) for item in mod_list.split()]
+
+
+        def chinese_remander(k_list,m_list):
+            # Chinese remainder theorem
+
+            counter = 0
+
+            # Check if entered modules are coprime
+            while counter <= len(m_list) - 1:
+                counter0 = 0
+                # Go through modulo list and test if it is coprime
+                while counter0 <= len(m_list) - 1:
+                    # Return error if not all coprime in modulo list
+                    if counter != counter0 and m_list[counter] % m_list[counter0] == 0:
+                        print("Ihre Module sind leider nicht teilerfremd zueinander!")
+                        return -1
+                    counter0 += 1
+                counter += 1
+    
+
+            # Check if length from input not the same
+            if len(k_list) != len(m_list):
+                print("Fehlerhafte Parameter")
+                return -1
+  
+            # Variables and list
+            list_length = len(k_list) - 1
+            counter1 = 0
+            multiplicator_list = []
+            eea_list = []
+            end_list = []
+            end_sum_list = []
+            mod_mult = 1
+            sum = 0
+            counter3 = 0
+            counter4 = 0
+            counter5 = 0
+  
+            # Go through length of list 
+            while counter1 <= list_length:
+                mult = 1
+                counter2 = 0
+                # Go through modulo list 
+                for i in m_list:
+                    # Multiply all values but not with the same value
+                    if counter2 != counter1:
+                        mult *= m_list[counter2]
+                    counter2 += 1
+                    # Add to multiplicator_list the product
+                multiplicator_list.append(mult)
+                counter1 += 1
+
+            print(multiplicator_list,m_list)
+
+            # Go through length of list 
+            while counter3 <= list_length:
+                # Add the first value from extended euclidean algorithm to eea list
+                eea_list.append(eea(multiplicator_list[counter3],m_list[counter3]))
+                counter3 += 1
+
+            # Go through length of list
+            while counter4 <= list_length:
+                # Get the product of values from eea list and numbers list and add to end list
+                end_list.append(eea_list[counter4] * k_list[counter4])
+                counter4 += 1
+
+            # Go through end list
+            for i in end_list:
+                mult2 = 1
+                counter6 = 0
+                # Go through length from numbers list
+                while counter6 <= list_length:
+                    # Check if values are equals and calculate
+                    if counter5 == counter6:
+                        mult2 *= end_list[counter6]
+                    else:
+                        mult2 *= m_list[counter6]
+                    counter6 += 1
+                    # Add to end sum list the calculated value
+                end_sum_list.append(mult2)
+                counter5 += 1
+
+            # Sum up all values from end sum list
+            for i in end_sum_list:
+                sum += i
+
+            # Multiply all values from modulo list
+            for i in m_list:
+                mod_mult *= i
+
+            # Return the calculated smallest value
+                return sum % mod_mult
+  
+
+        def eea(number1, number2):
+            # Extended euclidean algorithm funcgion here only return first part of linear combination
+
+            # Variables and lists
+            q_list = []
+            counter = 0
+            x = 0
+            y = 1
+            mod = number2
+
+            # Calculate while number2 not zero
+            while number2 != 0:
+                # Documentation of division numbers
+                q_list.append(number1 // number2)
+                # Modulo calculating and increment counter1
+                number3 = number2
+                number2 = number1 % number2
+                number1 = number3
+                counter += 1
+
+            # Go through q_list values to calculate linear combination value 
+            while counter > 1:
+                y_old = y 
+                y = x - q_list[counter-2] * y
+                x = y_old 
+                counter -= 1
+
+            # Return first part of linear combination
+            return x % mod
+        
+        return render_template("crt.html")
+
+    else:
+        
+        return render_template("crt.html")
+
 # Decimal to numerial system
 @app.route("/decimal_to_numeral_system", methods=["GET", "POST"])
 def decimal_to_numeral_system():

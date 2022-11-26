@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <body>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1 class="function-header">Chinese remainder theorem</h1>
+
+        <div class="input-div">
+            <form action="/crt" method="post">
+                <label class="label">Number list:
+                    <input class="input-field" autocomplete="off" autofocus id="number_list" name="number_list" placeholder="Enter number list e.g.:1 2 3 10 4" required type="text">
+                </label>
+                <br>
+                <label class="label">Mod list:
+                    <input class="input-field" autocomplete="off" id="mod_list" name="mod_list" placeholder="Enter mod list e.g.:1 2 3 10 4" required type="text">
+                </label>
+                <br>
+                <button class="result-button">Get result!</button>
+            </form>
+        </div>
+
+        <h1 class="standard-result">Result: {{ result }}</h1>
+
+        <form action="/">
+            <button class="back-button" type="submit">Homepage</button>
+        </form>
+
+    </body>
+
+{% endblock %}
