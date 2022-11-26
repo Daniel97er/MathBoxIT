@@ -483,7 +483,44 @@ def crt():
         
         return render_template("crt.html")
 
-# Decimal to numerial system
+# Gaussian elimination
+@app.route("/gaussian_elimination", methods=["GET", "POST"])
+def gaussian_elimination():
+
+    if request.method == "POST":
+
+        # Get user entered matrix from gaussian elimination page
+        user_matrix = request.form.get("user_matrix")
+
+        # Formatted user matrix input
+        user_matrix_f = [int(item) for item in user_matrix.split()]
+
+        # Limit for the lists
+        limit = math.sqrt((len(user_matrix_f)))
+
+        matrix = []
+        counterZ = 1
+        counterX = 0
+
+        # Go through formatted user matrix
+        for i in user_matrix_f: 	
+            # Check if limit is reached and add new list then
+	        if counterZ == 1:
+		        matrix.append([i])
+		        counterX += 1
+	        else:
+	            matrix[counterX-1].append(i)
+	        counterZ += 1
+	        if counterZ == limit + 1:
+		         counterZ = 1
+
+        return render_template("gaussian_elimination.html")
+
+    else:
+
+        return render_template("gaussian_elimination.html")
+
+# Decimal to numeral system
 @app.route("/decimal_to_numeral_system", methods=["GET", "POST"])
 def decimal_to_numeral_system():
   
