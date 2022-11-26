@@ -511,8 +511,9 @@ def gaussian_elimination():
 	        else:
 	            matrix[counterX-1].append(i)
 	        counterZ += 1
+            # Reset counterZ if limit is reached
 	        if counterZ == limit + 1:
-		         counterZ = 1
+		        counterZ = 1
 
         return render_template("gaussian_elimination.html")
 
