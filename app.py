@@ -351,7 +351,7 @@ def crt():
         mod_list_f =  [int(item) for item in mod_list.split()]
 
 
-        def chinese_remander(k_list,m_list):
+        def chinese_remainder_func(n_list,m_list):
             # Chinese remainder theorem
 
             counter = 0
@@ -363,19 +363,19 @@ def crt():
                 while counter0 <= len(m_list) - 1:
                     # Return error if not all coprime in modulo list
                     if counter != counter0 and m_list[counter] % m_list[counter0] == 0:
-                        print("Ihre Module sind leider nicht teilerfremd zueinander!")
-                        return -1
+                        flash("Entered modules are not coprime, please try again")
+                        return render_template("crt.html")
                     counter0 += 1
                 counter += 1
     
 
             # Check if length from input not the same
-            if len(k_list) != len(m_list):
-                print("Fehlerhafte Parameter")
-                return -1
+            if len(n_list) != len(m_list):
+                flash("Number list and module list dont have the same amount of values, please try again")
+                return render_template("crt.html")
   
             # Variables and list
-            list_length = len(k_list) - 1
+            list_length = len(n_list) - 1
             counter1 = 0
             multiplicator_list = []
             eea_list = []
@@ -412,7 +412,7 @@ def crt():
             # Go through length of list
             while counter4 <= list_length:
                 # Get the product of values from eea list and numbers list and add to end list
-                end_list.append(eea_list[counter4] * k_list[counter4])
+                end_list.append(eea_list[counter4] * n_list[counter4])
                 counter4 += 1
 
             # Go through end list
@@ -440,7 +440,7 @@ def crt():
                 mod_mult *= i
 
             # Return the calculated smallest value
-                return sum % mod_mult
+            return sum % mod_mult
   
 
         def eea(number1, number2):
@@ -473,7 +473,11 @@ def crt():
             # Return first part of linear combination
             return x % mod
         
-        return render_template("crt.html")
+        # Chinese remainder function to get the result
+        result = chinese_remainder_func(number_list_f, mod_list_f)
+        
+        print(result)
+        return render_template("crt.html", result=result)
 
     else:
         
