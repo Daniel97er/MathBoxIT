@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <body>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1 class="function-header">Gaussian elimination procedure</h1>
+
+        <div class="input-div">
+            <form action="/gaussian_elimination" method="post">
+                <label class="label">Matrix:
+                    <input class="input-field" autocomplete="off" autofocus id="user_matrix" name="user_matrix" placeholder="Please enter the matrix in one line e.g.: 3 4 8 9" required type="text">
+                </label>
+                <br>
+                <button class="result-button">Result!</button>
+            </form>
+        </div>
+
+        <h1 class="standard-result">Result: {{ result }}</h1>
+
+        <form action="/">
+            <button class="back-button" type="submit">Homepage</button>
+        </form>
+
+    </body>
+
+{% endblock %}
