@@ -506,9 +506,9 @@ def gaussian_elimination():
         for i in user_matrix_f: 	
             # Check if limit is reached and add new list then
 	        if counterZ == 1:
-		        matrix.append([i])
-		        counterX += 1
-	        else:
+                matrix.append([i])
+                counterX += 1
+            else:
 	            matrix[counterX-1].append(i)
 	        counterZ += 1
 
