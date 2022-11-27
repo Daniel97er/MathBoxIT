@@ -492,10 +492,19 @@ def gaussian_elimination():
         # Get user entered matrix from gaussian elimination page
         user_matrix = request.form.get("user_matrix")
 
-        # Check if user matrix input is valid
+        # Check if user matrix input is not number or space
         for i in user_matrix:
             if not ((ord(i) >= 48 and ord(i) <= 57) or (ord(i) == 32)):
                 flash("Not valid sign was entered, please try again")
+
+        counter_index = 0
+        
+        # Check if entered numbers not big as a matrix
+        for index in user_matrix.split():
+            counter_index += 1
+
+        if isinstance(math.sqrt(counter_index), int):
+            return error # todo
 
         # Formatted user matrix input
         user_matrix_f = [int(item) for item in user_matrix.split()]
