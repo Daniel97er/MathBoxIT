@@ -671,8 +671,26 @@ def finite_prime_field_division():
                 x = temporary
                 counter-=1
 
-            # Return GCD and first and second part for the linear combination
-            return (num1,x,y)
+            # Return first part of the linear combination
+            return (x)
+
+        def division_function(dividend, divisor, finite_prime_field):
+        # Function do a finite prime field division and return result
+
+            # Get result of eea with divisor and finite_prime_field for further calculation
+            raw_result = eea(divisor, finite_prime_field)
+
+            # Return division in finite_prime_field result 
+            return (dividend * raw_result) % finite_prime_field
+
+        # Get the result of the finite prime field division
+        end_result = division_function(dividend, divisor, finite_prime_field)
+
+        return render_template("finite_prime_field_division.html", end_result)
+
+    else:
+
+        return render_template("finite_prime_field_division.html")
 
 # Decimal to numeral system
 @app.route("/decimal_to_numeral_system", methods=["GET", "POST"])
