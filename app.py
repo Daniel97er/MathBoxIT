@@ -573,6 +573,107 @@ def gaussian_elimination():
 
         return render_template("gaussian_elimination.html")
 
+# Finite_prime_field_division
+@app.route("/finite_prime_field_division", methods=["GET", "POST"])
+def finite_prime_field_division():
+
+    if request.method == "POST":
+
+        # Get user input from finite prime field division page
+        dividend = int(request.form.get("dividend"))
+        divisor = int(request.form.get("divisor"))
+        finite_prime_field = int(request.form.get("finite_prime_field"))
+
+        # Miller_rabin_test and eea AGAIN for the division function 
+        # Programing again for my practise skills (Better outsource and reuse functions!)
+        
+        # Miller-Rabin test (probabilistic primality test) AGAIN
+        def miller_rabin_tester(prime_field):
+            # Miller-Rabin-Test
+
+            help_num = prime_field - 1
+            counter = 0
+
+            # Divide help_num by two and documentate, while help_num is even
+            while help_num % 2 == 0:
+                help_num //= 2
+                counter += 1
+
+            # Get random number
+            random_number = randrange(2, prime_field)
+
+            # Check if firts move of algorithm is one then most likely prime
+            if (random_number ** help_num) % prime_field == 1:
+                return True
+
+            # While counter greater zero test if result is -1 or 1 and decide then
+            while counter > 0:
+                if (random_number ** help_num) % prime_field == prime_field - 1:
+                    return True
+
+                if (random_number ** help_num) % prime_field == 1:
+                    return False
+        
+                random_number **= 2
+                counter -= 1
+
+            # Return false if no 1 or -1 appears
+            return False
+
+
+        def miller_rabin_tester_test(prime_field):
+            # Runs the miller-rabin-test 15 times to minimize
+            # the chance of false positive results
+
+            # Return false if number is apparently not prime
+            if prime_field < 2 or prime_field % 2 == 0:
+                return False
+
+            # Run Miller-Rabin-test 15 times to test
+            for _ in range(15):
+                if not miller_rabin_tester(prime_field):
+                    # Return false if number not prime
+                    return False
+
+            # Return true when most likely prime
+            return True
+
+        # Check if finite_prime_field user input is not a prime number
+        if not miller_rabin_tester_test(finite_prime_field):
+            flash("Finite prime field is mostly like not prime, please try again")
+            return render_template("finite_prime_field_division.html")
+
+        # Extended euclidean algorithm AGAIN
+        def eea(num1, num2):
+
+            q_list = []
+            counter = 0
+            # Calculate and append while num2 is not zero
+            while num2 != 0:
+                # Append to list how much num1 go in num2
+                q_list.append(num1 // num2)
+                # Calculate the new numbers for the algorithm
+                num3 = num1 % num2
+                num1 = num2
+                num2 = num3
+                # Increase counter for further calculations
+                counter += 1
+
+            # Standard variables for the second part of the algorithm
+            x = 0
+            y = 1
+
+            # Go through the numbers from part one backwards
+            while counter > 1:
+                temporary = y 
+                # Calculating the new value
+                y = x - q_list[counter-2] * y
+                x = temporary
+                counter-=1
+
+            # Return GCD and first and second part for the linear combination
+            return (num1,x,y)
+
 # Decimal to numeral system
 @app.route("/decimal_to_numeral_system", methods=["GET", "POST"])
 def decimal_to_numeral_system():
