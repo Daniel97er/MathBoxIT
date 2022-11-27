@@ -686,7 +686,7 @@ def finite_prime_field_division():
         # Get the result of the finite prime field division
         end_result = division_function(dividend, divisor, finite_prime_field)
 
-        return render_template("finite_prime_field_division.html", end_result)
+        return render_template("finite_prime_field_division.html", end_result=end_result)
 
     else:
 
