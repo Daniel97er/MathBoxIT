@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <body>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger" role="alert">
+                { message }
+            </div>
+        {% endfor %}
+
+        <h1 class="function-header">Finite prime field division</h1>
+
+        <div class="input-div">
+            <form action="/finite_prime_field_division" method="post">
+                <label class="label">Dividend:
+                    <input class="input-field" autocomplete="off" autofocus id="dividend" name="dividend" placeholder="Enter the dividend" required type="number">
+                </label>
+                <br>
+                <label class="label">Divisor:
+                    <input class="input-field" autocomplete="off" id="divisor" name="divisor" placeholder="Enter the divisor" required type="number">
+                </label>
+                <br>
+                <label class="label">Finite prime field:
+                    <input class="input-field" autocomplete="off" id="finite_prime_field" name="finite_prime_field" placeholder="Enter the finite prime field number" required type="number">
+                </label>
+                <br>
+                <button class="result-button">Get result!</button>
+            </form>
+        </div>
+
+        <h1 class="standard-result">Result: {{ end_result }}</h1>
+
+        <form action="/">
+            <button class="back-button" type="submit">Homepage</button>
+        </form>
+
+    </body>
+
+{% endblock %}
