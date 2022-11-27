@@ -505,16 +505,16 @@ def gaussian_elimination():
         # Go through formatted user matrix
         for i in user_matrix_f: 	
             # Check if limit is reached and add new list then
-	        if counterZ == 1:
+            if counterZ == 1:
                 matrix.append([i])
                 counterX += 1
             else:
-	            matrix[counterX-1].append(i)
-	        counterZ += 1
+                matrix[counterX-1].append(i)
+            counterZ += 1
 
             # Reset counterZ if limit is reached
-	        if counterZ == limit + 1:
-		        counterZ = 1
+            if counterZ == limit + 1:
+                counterZ = 1
 
         # Addition function for the Gaussian elimination function
         def addition(M, i, j, x):
@@ -524,30 +524,30 @@ def gaussian_elimination():
         # Gaussian elimination function
         def gaussian_elimination_function(M):
             
-	        row, col = 0, 0
+            row, col = 0, 0
             # Get rows and columns length
-	        rows, cols = len(M), len(M[0])
+            rows, cols = len(M), len(M[0])
             # Go through matrix
-	        while row < rows and col < cols:
-		        if M[row][col] == 0:
+            while row < rows and col < cols:
+                if M[row][col] == 0:
                     # Go through current row and calculated ne values with addition function
-			        for r in range(row+1, rows):
-				        if M[r][col] != 0:
-					        addition(M, row, r, 1)
-					        break	
+                    for r in range(row+1, rows):
+                        if M[r][col] != 0:
+                            addition(M, row, r, 1)
+                            break	
                 # Get one iteration next if element is zero, so work is done
-		        if M[row][col] == 0:
-			        col += 1
-			        continue
+                if M[row][col] == 0:
+                    col += 1
+                    continue
                 # Set new pivot element
-		        pivot = M[row][col]
-		        for r in range(row+1, rows):
+                pivot = M[row][col]
+                for r in range(row+1, rows):
                     # Addition with calculated new number
-			        if M[r][col] != 0:
-				        addition(M, r, row, -M[r][col] / pivot)
+                    if M[r][col] != 0:
+                        addition(M, r, row, -M[r][col] / pivot)
 		        # Get one iteration next
                 row += 1
-		        col += 1
+                col += 1
 
         # Calculated matrix with gaussian elimination function
         result_matrix = gaussian_elimination_function(matrix)
