@@ -503,8 +503,11 @@ def gaussian_elimination():
         for index in user_matrix.split():
             counter_index += 1
 
-        if isinstance(math.sqrt(counter_index), int):
-            return error # todo
+        print(counter_index)
+
+        if math.sqrt(counter_index) % 1 != 0:
+            flash("The amount of numbers is not right for matrix (2X2)(3X3)...")
+            return render_template("gaussian_elimination.html")
 
         # Formatted user matrix input
         user_matrix_f = [int(item) for item in user_matrix.split()]
