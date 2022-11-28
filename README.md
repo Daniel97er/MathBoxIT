@@ -35,13 +35,13 @@ With this algorithm we can get the smallest natural number which meets the follo
 (X congruent 5 mod2)
 <br>
 <br>
-When the mods are all coprime the chinese remainder function can find the smallest number which solves the conditions.
+When the mods are all coprime the chinese remainder function can find the smallest number X which solves the conditions.
 <br>
 <br>
 To use the function enter the number in the following format:
 <br>
-number_list:4 3 5
+Number list:4 3 5
 <br>
-mod_list:7 5 2
+Mod list:7 5 2
 
 ## Binary world
