@@ -21,7 +21,15 @@ This test check if a ISBN-10 number is valid. Enter here the number without spac
 This algorithm checks with modulo calculating wbich is the great commen divisior of two entered numbers.
 
 ### Extended Euclidean algorithm
-This algorithm calculate the great common divisior and reconstruct a linear combination with the two entered numbers Equalizer to the great common
-divisor.
+This algorithm calculate the great common divisior and reconstruct a linear combination with the two entered numbers Equalizer to the great common divisor.
+
+### Chinese remainder theorem 
+With this algorithm we can get the smallest natural number which meets the following conditions. From a list of equations which looks like
+dividend % divisor = rest
+3 % 2 = 1
+8 % 3 = 3
+6 % 5 = 2
+
+When the divisors are all coprime the chinese remainder function can find the smallest number which 
 
 ## Binary world
