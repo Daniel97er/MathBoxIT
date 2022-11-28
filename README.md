@@ -69,4 +69,8 @@ Converts a decimal number to an equivalent number from the selected numeral syst
 ### Numeral system to decimal 
 Converts a number from selected numeral system to an equivalent number from the decimal system.
 
-### 
+### Decimal to Binary 
+Converts a decimal number to an equivalent number from the binary system.
+
+### Binary to decimal
+Converts a binary number to an equivalent number from the decimal system.
