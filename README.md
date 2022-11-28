@@ -38,10 +38,20 @@ With this algorithm we can get the smallest natural number which meets the follo
 When the mods are all coprime the chinese remainder function can find the smallest number X which solves the conditions.
 <br>
 <br>
-To use the function enter the number in the following format:
+To use the function enter the numbers in the following format:
 <br>
 Number list:4 3 5
 <br>
 Mod list:7 5 2
+
+### Gaussian elimination
+This algorithm solves a linear system of equations like below to line step shape.
+<br>
+<br>
+3X + 5Y = 0
+5X + 9Y = 0
+<br>
+<br>
+To use the function enter the numbers as a matrix but in one line:
 
 ## Binary world
