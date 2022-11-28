@@ -25,8 +25,8 @@ This algorithm calculate the great common divisior and reconstruct a linear comb
 
 ### Chinese remainder theorem 
 With this algorithm we can get the smallest natural number which meets the following conditions. From a list of equations which looks like:
-dividend % divisor = rest
-3 % 2 = 1
+X congruent mod % number
+X congruent 2 2 = 1
 8 % 3 = 3
 6 % 5 = 2
 When the divisors are all coprime the chinese remainder function can find the smallest number which solves the conditions.
