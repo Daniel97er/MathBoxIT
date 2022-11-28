@@ -57,8 +57,16 @@ To use the function enter the numbers as a matrix but in one line:
 Matrix:3 5 5 9
 
 ### Finite prime field division
-This function do a division in a finite prime field 
+This function do a division in a finite prime field. 
 
 
 
 ## Binary world
+
+### Decimal to numeral system 
+Converts a decimal number to an equivalent number from the selected numeral system.
+
+### Numeral system to decimal 
+Converts a number from selected numeral system to an equivalent number from the decimal system.
+
+### 
