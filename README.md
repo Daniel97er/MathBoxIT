@@ -25,14 +25,14 @@ This algorithm calculate the great common divisior and reconstruct a linear comb
 
 ### Chinese remainder theorem 
 With this algorithm we can get the smallest natural number which meets the following conditions. From a list of equations which looks like:
-X congruent mod % number
-X congruent 2 2 = 1
-8 % 3 = 3
-6 % 5 = 2
-When the divisors are all coprime the chinese remainder function can find the smallest number which solves the conditions.
+(X congruent number mod)
+(X congruent 4 mod7)
+(X congruent 3 mod5)
+(X congruent 5 mod2)
+When the mods are all coprime the chinese remainder function can find the smallest number which solves the conditions.
 
 To use the function enter the number in the following format:
-number_list:3 8 6
-mod_list:2 3 5
+number_list:4 3 5
+mod_list:7 5 2
 
 ## Binary world
