@@ -53,5 +53,12 @@ This algorithm solves a linear system of equations like below to line step shape
 <br>
 <br>
 To use the function enter the numbers as a matrix but in one line:
+<br> 
+Matrix:3 5 5 9
+
+### Finite prime field division
+This function do a division in a finite prime field 
+
+
 
 ## Binary world
