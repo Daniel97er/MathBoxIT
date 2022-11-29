@@ -49,6 +49,7 @@ This algorithm solves a linear system of equations like below to line step shape
 <br>
 <br>
 3X + 5Y = 0
+<br>
 5X + 9Y = 0
 <br>
 <br>
