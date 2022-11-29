@@ -256,8 +256,8 @@ def euclidean_algorithm():
 
             # Calculate with modulo while is possible
             while number2 != 0:
-                temp = number1%number2
-                # swap numbers 
+                temp = number1 % number2
+                # swap numbers
                 number1 = number2
                 number2 = temp
 
@@ -364,7 +364,7 @@ def crt():
                     # Return error if not all coprime in modulo list
                     if counter != counter0 and m_list[counter] % m_list[counter0] == 0:
                         flash("Entered modules are not coprime, please try again")
-                        return render_template("crt.html")
+                        return render_template("crt.html", result="")
                     counter0 += 1
                 counter += 1
     
@@ -538,7 +538,7 @@ def gaussian_elimination():
 
         # Gaussian elimination function
         def gaussian_elimination_function(M):
-            
+
             row, col = 0, 0
             # Get rows and columns length
             rows, cols = len(M), len(M[0])
