@@ -1,6 +1,6 @@
 import math
 from random import randrange
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, redirect, request, flash
 
 # Flask instance configuration
 app = Flask(__name__)
@@ -364,7 +364,7 @@ def crt():
                     # Return error if not all coprime in modulo list
                     if counter != counter0 and m_list[counter] % m_list[counter0] == 0:
                         flash("Entered modules are not coprime, please try again")
-                        return render_template("crt.html", result="")
+                        return redirect("/crt.html")
                     counter0 += 1
                 counter += 1
     
