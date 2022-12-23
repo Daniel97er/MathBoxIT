@@ -1,6 +1,6 @@
 import math
 from random import randrange
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, redirect, request, flash
 
 # Flask instance configuration
 app = Flask(__name__)
@@ -257,7 +257,9 @@ def euclidean_algorithm():
             # Calculate with modulo while is possible
             while number2 != 0:
                 temp = number1 % number2
-                # swap numbers 
+
+                # swap numbers
+                # swap 
                 number1 = number2
                 number2 = temp
 
@@ -364,7 +366,7 @@ def crt():
                     # Return error if not all coprime in modulo list
                     if counter != counter0 and m_list[counter] % m_list[counter0] == 0:
                         flash("Entered modules are not coprime, please try again")
-                        return render_template("crt.html")
+                        return redirect("/crt.html")
                     counter0 += 1
                 counter += 1
     
@@ -538,7 +540,7 @@ def gaussian_elimination():
 
         # Gaussian elimination function
         def gaussian_elimination_function(M):
-            
+
             row, col = 0, 0
             # Get rows and columns length
             rows, cols = len(M), len(M[0])
