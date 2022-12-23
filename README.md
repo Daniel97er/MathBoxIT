@@ -21,7 +21,57 @@ This test check if a ISBN-10 number is valid. Enter here the number without spac
 This algorithm checks with modulo calculating wbich is the great commen divisior of two entered numbers.
 
 ### Extended Euclidean algorithm
-This algorithm calculate the great common divisior and reconstruct a linear combination with the two entered numbers Equalizer to the great common
-divisor.
+This algorithm calculate the great common divisior and reconstruct a linear combination with the two entered numbers Equalizer to the great common divisor.
+
+### Chinese remainder theorem 
+With this algorithm we can get the smallest natural number which meets the following conditions. From a list of equations which looks like:
+(X congruent number mod)
+<br>
+<br>
+(X congruent 4 mod7)
+<br>
+(X congruent 3 mod5)
+<br>
+(X congruent 5 mod2)
+<br>
+<br>
+When the mods are all coprime the chinese remainder function can find the smallest number X which solves the conditions.
+<br>
+<br>
+To use the function enter the numbers in the following format:
+<br>
+Number list:4 3 5
+<br>
+Mod list:7 5 2
+
+### Gaussian elimination
+This algorithm solves a linear system of equations like below to line step shape.
+<br>
+<br>
+3X + 7Y = 0
+<br>
+5X + 9Y = 0
+<br>
+<br>
+To use the function enter the numbers as a matrix but in one line:
+<br> 
+Matrix:3 7 5 9
+
+### Finite prime field division
+This function do a division in a finite prime field. 
+
+
 
 ## Binary world
+
+### Decimal to numeral system 
+Converts a decimal number to an equivalent number from the selected numeral system.
+
+### Numeral system to decimal 
+Converts a number from selected numeral system to an equivalent number from the decimal system.
+
+### Decimal to Binary 
+Converts a decimal number to an equivalent number from the binary system.
+
+### Binary to decimal
+Converts a binary number to an equivalent number from the decimal system.

@@ -159,7 +159,7 @@ def prime_factors():
                 tester = False
         
                 # Go up to square root because of efficiency
-                for j in range(2,int(math.sqrt(i))+1):
+                for j in range(2, int(math.sqrt(i)) +1):
                     # If there is a dividend so i is not prime
                     if i % j == 0:
                         tester = True
@@ -257,7 +257,9 @@ def euclidean_algorithm():
             # Calculate with modulo while is possible
             while number2 != 0:
                 temp = number1 % number2
+
                 # swap numbers
+                # swap 
                 number1 = number2
                 number2 = temp
 
@@ -351,7 +353,7 @@ def crt():
         mod_list_f =  [int(item) for item in mod_list.split()]
 
 
-        def chinese_remainder_func(n_list,m_list):
+        def chinese_remainder_func(n_list, m_list):
             # Chinese remainder theorem
 
             counter = 0
@@ -401,12 +403,12 @@ def crt():
                 multiplicator_list.append(mult)
                 counter1 += 1
 
-            print(multiplicator_list,m_list)
+            print(multiplicator_list, m_list)
 
             # Go through length of list 
             while counter3 <= list_length:
                 # Add the first value from extended euclidean algorithm to eea list
-                eea_list.append(eea(multiplicator_list[counter3],m_list[counter3]))
+                eea_list.append(eea(multiplicator_list[counter3], m_list[counter3]))
                 counter3 += 1
 
             # Go through length of list
@@ -546,7 +548,7 @@ def gaussian_elimination():
             while row < rows and col < cols:
                 if M[row][col] == 0:
                     # Go through current row and calculated ne values with addition function
-                    for r in range(row+1, rows):
+                    for r in range(row + 1, rows):
                         if M[r][col] != 0:
                             addition(M, row, r, 1)
                             break	
@@ -556,7 +558,7 @@ def gaussian_elimination():
                     continue
                 # Set new pivot element
                 pivot = M[row][col]
-                for r in range(row+1, rows):
+                for r in range(row + 1, rows):
                     # Addition with calculated new number
                     if M[r][col] != 0:
                         addition(M, r, row, -M[r][col] / pivot)
@@ -769,7 +771,7 @@ def numeral_system_to_decimal():
             # Check if user input number higher than numeral system
             for i in str(number):
                 if numeral_system <= int(i):
-                    flash("Some digits from number higher than numeral system ")
+                    flash("Some digits from number higher than numeral system")
                     return render_template("numeral_system_to_decimal.html")
             
             counter = 0
@@ -780,7 +782,7 @@ def numeral_system_to_decimal():
     
             # Calculate the decimal value
             for index in number_backward:
-                sum += int(index) * (numeral_system**counter)
+                sum += int(index) * (numeral_system ** counter)
                 counter += 1
         
             # Return decimal value
