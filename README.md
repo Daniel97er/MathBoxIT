@@ -2,9 +2,13 @@
 
 ## Description:
 Mathematical tools for informatics (A program which I programmed after the mathematics and cryptography lecture to practice math, cryptography and
-programming) This program is created only to learn and not for efficiency functions. No teacher checked the programming functions so there
-can be errors, to be sure to have correct results use tested programs and nothing here! I program this with Python, Flask Framework, Jinja, HTML and CSS. 
+programming) This program is created only to learn and not for efficiency functions. 
+!!!No teacher checked the programming functions so there can be errors, to be sure to have correct results use tested programs and nothing here!!!
 
+I program this with Python, Flask Framework, Jinja, HTML and CSS. 
+
+
+## How to use?
 
 1. Open the Code with Github Codespace or other development
    environment
@@ -86,3 +90,18 @@ Converts a decimal number to an equivalent number from the binary system.
 
 ### Binary to decimal
 Converts a binary number to an equivalent number from the decimal system.
+
+
+## Pictures of the Webpages
+
+Homepage with all functions buttons to klick.
+
+![Alt-Text](pictures_documentation/Pic1.jpg)
+
+![Alt-Text](pictures_documentation/Pic2.jpg)
+
+Examples of the webpages with the functions.
+
+![Alt-Text](pictures_documentation/Pic3.png)
+
+![Alt-Text](pictures_documentation/Pic4.jpg)
