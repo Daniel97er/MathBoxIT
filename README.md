@@ -102,6 +102,6 @@ Homepage with all functions buttons to klick.
 
 Examples of the webpages with the functions.
 
-![Alt-Text](pictures_documentation/Pic3.png)
+![Alt-Text](pictures_documentation/Pic3.jpg)
 
 ![Alt-Text](pictures_documentation/Pic4.jpg)
