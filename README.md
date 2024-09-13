@@ -5,6 +5,17 @@ Mathematical tools for informatics (A program which I programmed after the mathe
 programming) This program is created only to learn and not for efficiency functions. No teacher checked the programming functions so there
 can be errors, to be sure to have correct results use tested programs and nothing here! I program this with Python, Flask Framework, Jinja, HTML and CSS. 
 
+
+1. Open the Code with Github Codespace or other development
+   environment
+2. Install Python if not already installed
+3. Go in the project directory with the command if not already in
+4. Install Python Flask Framework with the command: pip install
+   flask
+5. Start the Application with the command: flask run
+8. Open the web application with go to PORTS right of TERMINAL
+   and open in Browser mostly Port 5000
+
 ## Math functions
 
 ### Miller-Rabin-Test (probabilistic primality test)
